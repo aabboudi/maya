@@ -1,3 +1,11 @@
+/*
+Run this command to generate output.css file
+npm run watch:css
+
+Or to build prod-output.css for production
+npm run build:css
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
