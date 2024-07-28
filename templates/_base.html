@@ -11,14 +11,14 @@
   <!-- Placeholder favicon for development purposes -->
   <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <!-- For production, change to css/prod-output.css after running npm run build:css -->
-  <!-- Design elements credits: https://merakiui.com/ -->
-  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+  <link href="{% static 'static/css/output.css' %}" rel="stylesheet">
   <script src="{% static 'node_modules/preline/dist/preline.js' %}"></script>
 </head>
  
 <body>
   {% include 'components/navbar.html' %}
   <main class="dark:bg-gray-900 min-h-[80vh]">
+  <!-- <main> -->
     {% block content %} {% endblock content %}
   </main>
   {% include 'components/footer.html' %}
