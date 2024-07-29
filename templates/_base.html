@@ -13,6 +13,8 @@
   <!-- For production, change to css/prod-output.css after running npm run build:css -->
   <link href="{% static 'static/css/output.css' %}" rel="stylesheet">
   <script src="{% static 'node_modules/preline/dist/preline.js' %}"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
  
 <body>
@@ -21,6 +23,7 @@
     {% block content %} {% endblock content %}
   </main>
   {% include 'components/footer.html' %}
+  <script>lucide.createIcons()</script>
 </body>
  
 </html>
