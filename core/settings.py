@@ -27,7 +27,17 @@ SECRET_KEY = 'django-insecure-f-4@6$tx(05c-_l_x3q&omthhjwk7y1txbpmru$h4hdl14t$z%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'yesalumni-morocco.azurewebsites.net',
+    '127.0.0.1'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://yesalumni-morocco.azurewebsites.net',
+    'https://yesalumni-morocco.azurewebsites.net',
+    'http://127.0.0.1',
+    'https://127.0.0.1',
+]
 
 
 # Application definition
@@ -46,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,8 +135,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'templates',
+    os.path.join(BASE_DIR, 'templates'),
 ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
