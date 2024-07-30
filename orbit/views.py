@@ -8,6 +8,15 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+def programs(request):
+    return render(request, 'programs/programs.html')
+
+def program_details(request, program: str):
+    return render(request, 'programs/program-details.html', { "data": program})
+
+def partners(request):
+    return render(request, 'partners.html')
+
 def contact(request):
     return render(request, 'contact.html')
 

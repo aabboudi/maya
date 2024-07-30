@@ -2,7 +2,7 @@
 <header class="fixed top-0 md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
   <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center gap-x-1">
-      <a class="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white" href="/" aria-label="Brand">YES Alumni Morocco</a>
+      <a class="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white" href="/" aria-label="Brand">YES Alumni Association - Morocco</a>
 
       <!-- Collapse Button -->
       <button type="button" class="hs-collapse-toggle md:hidden relative size-9 flex justify-center items-center font-medium text-[12px] rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-header-base-collapse"  aria-expanded="false" aria-controls="hs-header-base" aria-label="Toggle navigation"  data-hs-collapse="#hs-header-base" >
@@ -19,27 +19,34 @@
         <div class="py-2 md:py-0  flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
           <div class="grow">
             <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
-              <a class="p-2 flex items-center text-sm bg-gray-100 text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#" aria-current="page">
-                <i data-lucide="home" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
-                Landing
+
+              <a href="/about" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                <!-- Could use this for href: "{% url 'about' %}" -->
+                <i data-lucide="info" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                About
+              </a>
+
+              <a href="/programs" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                <i data-lucide="briefcase-business" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                Programs
               </a>
 
               <!-- Mega Menu -->
               <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false] ">
                 <button id="hs-header-base-mega-menu-small" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
-                  <i data-lucide="settings" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
-                  Resources
+                  <i data-lucide="list-collapse" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                  Events
                   <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
 
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-80 hidden z-10 top-full md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 dark:md:bg-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-base-mega-menu-small">
                   <div class="py-1 md:px-1 space-y-0.5">
                     <!-- Link -->
-                    <a class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
-                      <i data-lucide="hard-drive" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                    <a href="#" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <i data-lucide="calendar-arrow-down" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
-                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Data</span>
-                        <p class="text-sm text-gray-500 dark:text-neutral-500">How you get the most accurate and up-to-date data</p>
+                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Upcoming Events</span>
+                        <p class="text-sm text-gray-500 dark:text-neutral-500">Participate in our upcoming event!</p>
                       </div>
                     </a>
                     <!-- End Link -->
@@ -47,10 +54,10 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
-                      <i data-lucide="users" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                    <a href="#" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <i data-lucide="newspaper" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
-                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Team <span class="inline ms-1 font-medium text-xs bg-blue-600 text-white py-1 px-2 rounded-full">We're hiring</span></span>
+                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Past Events <span class="inline ms-1 font-medium text-xs bg-blue-600 text-white py-1 px-2 rounded-full">We're hiring</span></span>
                         <p class="text-sm text-gray-500 dark:text-neutral-500">Meet the people building products to help your business grow</p>
                       </div>
                     </a>
@@ -59,11 +66,11 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
-                      <i data-lucide="newspaper" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                    <a href="#" class="p-3 flex items gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <i data-lucide="images" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
-                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Blog</span>
-                        <p class="text-sm text-gray-500 dark:text-neutral-500">The latest news, feature releases, and how to grow with data</p>
+                        <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Gallery</span>
+                        <p class="text-sm text-gray-500 dark:text-neutral-500">Browse featured photos of our projects and events!</p>
                       </div>
                     </a>
                     <!-- End Link -->
@@ -72,24 +79,13 @@
               </div>
               <!-- End Mega Menu -->
 
-              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="/about">
-                <!-- Could use this for href: "{% url 'about' %}" -->
-                <i data-lucide="list-collapse" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
-                About
+              <a href="/partners" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                <i data-lucide="handshake" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+                Partners
               </a>
 
-              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
-                <i data-lucide="briefcase-business" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
-                Programs
-              </a>
-
-              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="/contact">
-                <i data-lucide="newspaper" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
-                Blog
-              </a>
-
-              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="/contact">
-                <i data-lucide="user" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
+              <a href="/contact" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                <i data-lucide="mail-open" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Contact
               </a>
             </div>
@@ -101,10 +97,10 @@
 
           <!-- Button Group -->
           <div class="flex flex-wrap items-center gap-x-1.5">
-            <a class="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 focus:outline-none focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
+            <a href="#" class="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 focus:outline-none focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
               Register
             </a>
-            <a class="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:bg-blue-600" href="#">
+            <a href="#" class="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:bg-blue-600">
               Donate
             </a>
           </div>
