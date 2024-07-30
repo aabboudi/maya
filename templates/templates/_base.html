@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>{% block title %}YES Alumni Morocco{% endblock %}</title>
   <!-- Placeholder favicon for development purposes -->
   <link rel="shortcut icon" href="{% static 'static/assets/favicon.ico' %}" type="image/x-icon">
   <!-- For production, change to css/prod-output.css after running npm run build:css -->
@@ -16,6 +16,13 @@
 
   <!-- Lucide development package -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  {% block extend_head %}
+    <meta property="og:title" content="YES Alumni Morocco" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yesalumni-morocco.azurewebsites.net" />
+    <meta property="og:image" content="" />
+  {% endblock %}
 </head>
  
 <body>
