@@ -153,7 +153,7 @@ JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
 # MEDIA_ROOT = BASE_DIR / 'media'
 
 AZURE_ACCOUNT_NAME = 'yesalumnimorocco'
-AZURE_ACCOUNT_KEY = 'QIUNYc+XkAJVz3CF2lBF68PimKXiVz2sgHntsLo6rp2z7aiXetE2iIb2cwBMaDc1DeHD1wZaKOMJ+AStw4rSNg=='
+AZURE_ACCOUNT_KEY = 'get_from_portal'
 AZURE_CONTAINER = 'mediacontainer'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
