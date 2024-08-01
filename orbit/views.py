@@ -9,14 +9,30 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+def stories(request):
+    # stories = Post.objects.all()
+    posts_with_images = []
+    for post in Post.objects.all():
+        first_image = post.images.first()
+        posts_with_images.append({
+            'post': post,
+            'first_image': first_image,
+            'authors': post.author.all(),
+        })
+    return render(request, 'stories.html', { 'stories': posts_with_images })
+
+def story_details(request, story: str):
+    story = get_object_or_404(Post, slug=story)
+    images = story.images.all()
+    return render(request, 'story.html', { 'story': story, 'images': images })
+
 def programs(request):
     programs = Program.objects.all()
-    print(programs)
     return render(request, 'programs/programs.html', { 'programs': programs })
 
 def program_details(request, program: str):
     program = get_object_or_404(Program, slug=program)
-    return render(request, 'programs/program-details.html', { "program": program})
+    return render(request, 'programs/program-details.html', { 'program': program })
 
 def partners(request):
     return render(request, 'partners.html')

@@ -1,0 +1,65 @@
+{% extends "_base.html" %}
+
+{% block title %}Stories{% endblock %}
+
+{% block extra_head %}
+
+{% endblock %}
+ 
+{% block content %}
+
+<!-- Card Blog -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Grid -->
+  <div class="grid lg:grid-cols-2 gap-6">
+
+    {% for story in stories %}
+    <!-- Card -->
+    <a href="/stories/{{ story.post.slug }}" class="group relative block rounded-xl focus:outline-none">
+      <div class="shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
+        <img class="size-full absolute top-0 start-0 object-cover" src={{ story.first_image.image.url }} alt="Blog Image">
+      </div>
+
+      <div class="absolute top-0 inset-x-0 z-10">
+        <div class="p-4 flex flex-col h-full sm:p-6">
+          <!-- Avatar -->
+          <div class="flex items-center">
+            {% for author in story.authors %}
+            <div class="shrink-0">
+              <img class="size-[46px] border-2 border-white rounded-full"
+              src={{ author.avatar.url }} alt="Avatar">
+            </div>
+            <div class="ms-2.5 sm:ms-4">
+                <h4 class="font-semibold text-white">
+                  {{ author.name }}
+                </h4>
+                <p class="text-xs text-white/80">
+                  {{ story.post.created_at }}
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- End Avatar -->
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 inset-x-0 z-10">
+        <div class="flex flex-col h-full p-4 sm:p-6">
+          <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80 group-focus:text-white/80">
+            {{ story.post.title }}
+          </h3>
+          <p class="mt-2 text-white/80">
+            {{ story.post.description }}
+          </p>
+        </div>
+      </div>
+    </a>
+    <!-- End Card -->
+     {% endfor %}
+
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Card Blog -->
+
+{% endblock content %}
