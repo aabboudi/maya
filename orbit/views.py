@@ -19,12 +19,12 @@ def stories(request):
             'first_image': first_image,
             'authors': post.author.all(),
         })
-    return render(request, 'stories.html', { 'stories': posts_with_images })
+    return render(request, 'stories/stories.html', { 'stories': posts_with_images })
 
 def story_details(request, story: str):
     story = get_object_or_404(Post, slug=story)
     images = story.images.all()
-    return render(request, 'story.html', { 'story': story, 'images': images })
+    return render(request, 'stories/story.html', { 'story': story, 'images': images })
 
 def programs(request):
     programs = Program.objects.all()

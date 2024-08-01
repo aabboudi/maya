@@ -12,7 +12,7 @@ class Person(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True, help_text='This is the URL path value for this page.')
+    slug = models.SlugField(unique=True, max_length=80, help_text='This is the URL path value for this page.')
     category = models.CharField(max_length=10, default='Blog', choices=(('Blog', 'Blog'),('Project', 'Project'),))
     author = models.ManyToManyField(Person, related_name='post', blank=True)
     description = models.CharField(max_length=512, blank=True)
