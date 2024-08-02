@@ -29,6 +29,9 @@
             <p class="text-xs sm:text-sm text-gray-800 dark:text-neutral-200">{{ story.created_at }}</p>
           </div>
 
+          {% comment %} Handle styling later {% endcomment %}
+          <div class="text-gray-800 dark:text-neutral-200">{{ story.content|safe }}</div>
+
           <p class="text-lg text-gray-800 dark:text-neutral-200">At preline, our mission has always been focused on bringing openness and transparency to the design process. We've always believed that by providing a space where designers can share ongoing work not only empowers them to make better products, it also helps them grow.</p>
 
           <p class="text-lg text-gray-800 dark:text-neutral-200">We're proud to be a part of creating a more open culture and to continue building a product that supports this vision.</p>
