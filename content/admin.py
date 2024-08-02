@@ -14,10 +14,14 @@ class PostAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'slug', 'created_at', 'updated_at')
 
+class ProgramGoalAdmin(admin.ModelAdmin):
+    list_display = ('id', 'icon', 'goal', 'description', 'created_at', 'updated_at')
+
 class ProgramAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'slug', 'image', 'created_at', 'updated_at')
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(ProgramGoal, ProgramGoalAdmin)
 admin.site.register(Program, ProgramAdmin)

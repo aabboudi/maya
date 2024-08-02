@@ -14,6 +14,7 @@ def stories(request):
     posts_with_images = []
     for post in Post.objects.all():
         first_image = post.images.first()
+        print(first_image)
         posts_with_images.append({
             'post': post,
             'first_image': first_image,
@@ -27,12 +28,24 @@ def story_details(request, story: str):
     return render(request, 'stories/story.html', { 'story': story, 'images': images })
 
 def programs(request):
-    programs = Program.objects.all()
-    return render(request, 'programs/programs.html', { 'programs': programs })
+    program_with_image = []
+    programs = Program.objects.prefetch_related('goals')
+
+    for program in programs:
+        goal = program.goals.first()
+        bgimage_url = goal.image.url if goal and goal.image else None
+        program_with_image.append({
+            'program': program,
+            'bgimage_url': bgimage_url,
+        })
+
+    return render(request, 'programs/programs.html', { 'programs': program_with_image })
+
 
 def program_details(request, program: str):
     program = get_object_or_404(Program, slug=program)
-    return render(request, 'programs/program-details.html', { 'program': program })
+    goals = program.goals.all()
+    return render(request, 'programs/program-details.html', { 'program': program, 'goals': goals })
 
 def partners(request):
     return render(request, 'partners.html')

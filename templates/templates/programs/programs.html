@@ -14,14 +14,14 @@
   <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
     {% for program in programs %}
     <!-- Card -->
-    <a href="/programs/{{ program.slug }}" class="group block rounded-xl overflow-hidden focus:outline-none">
+    <a href="/programs/{{ program.program.slug }}" class="group block rounded-xl overflow-hidden focus:outline-none">
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
         <div class="shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
           <img
             class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
             alt="Blog Image"
-            {% if program.image %}
-              src="{{ program.image.url }}"
+            {% if program.bgimage_url %}
+              src="{{ program.bgimage_url }}"
             {% else %}
               src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
             {% endif %}
@@ -30,10 +30,10 @@
 
         <div class="grow">
           <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-            {{ program.title }}
+            {{ program.program.title }}
           </h3>
           <p class="mt-3 text-gray-600 dark:text-neutral-400">
-            {{ program.desc }}
+            {{ program.program.description }}
           </p>
           <p class="mt-4 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium dark:text-blue-500">
             Read more

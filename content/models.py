@@ -53,3 +53,16 @@ class Program(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ProgramGoal(models.Model):
+    icon = models.CharField(max_length=30, blank=True)
+    goal = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='programs/')
+    program = models.ForeignKey(Program, related_name='goals', on_delete=models.CASCADE, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.goal
