@@ -1,5 +1,5 @@
 {% load static %}
- 
+
 <!DOCTYPE html>
 <html lang="en">
  
@@ -15,9 +15,6 @@
   <script src="{% static 'static/js/main.js' %}"></script>
   <script src="{% static 'node_modules/preline/dist/preline.js' %}"></script>
 
-  <!-- Lucide development package -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
   {% block extend_head %}
     <meta property="og:title" content="YES Alumni Morocco" />
     <meta property="og:type" content="website" />
@@ -32,6 +29,7 @@
     {% block content %} {% endblock content %}
   </main>
   {% include 'components/footer.html' %}
+  <script src="{% static 'node_modules/lucide/dist/umd/lucide.js' %}"></script>
   <script>lucide.createIcons()</script>
 </body>
  

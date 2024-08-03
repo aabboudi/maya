@@ -44,8 +44,8 @@
           <!-- Tab Content -->
           <div>
             {% for goal in goals %}
-            <div id="tabs-with-card-{{ forloop.counter }}" {% if forloop.counter0 != 0 %}class="hidden"{% endif %} role="tabpanel" aria-labelledby="tabs-with-card-item-{{ forloop.counter }}">
-              <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="{{ goal.image.url }}" alt="Features Image">
+            <div id="tabs-with-card-{{ forloop.counter }}" class="relative h-72 {% if forloop.counter0 != 0 %}hidden{% endif %}" role="tabpanel" aria-labelledby="tabs-with-card-item-{{ forloop.counter }}">
+                <img class="absolute inset-0 h-full w-full object-cover shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="{{ goal.image.url }}" alt="Features Image">
             </div>
             {% endfor %}
           </div>
