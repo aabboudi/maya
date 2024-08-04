@@ -14,8 +14,8 @@ def partners(request):
     return render(request, 'about/partners.html')
 
 def executive_board(request):
-    members = Member.objects.all()
-    return render(request, 'about/executive-board.html', { 'members': members })
+    board_members = BoardMember.objects.all()
+    return render(request, 'about/executive-board.html', { 'board_members': board_members })
 
 def stories(request):
     # stories = Post.objects.all()

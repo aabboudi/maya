@@ -20,26 +20,26 @@
   <!-- Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    {% for member in members %}
+    {% for board_member in board_members %}
     <div class="flex flex-col rounded-xl p-4 md:p-6 bg-white border-2 border-gray-200 dark:bg-neutral-900 dark:border-neutral-700">
       <div class="flex items-center gap-x-4">
         <img
           class="rounded-full size-20"
-          src={% if member.avatar %} {{ member.avatar.url }} {% endif %}
+          src={% if board_member.avatar %} {{ board_member.avatar.url }} {% endif %}
           alt="Avatar">
         <div class="grow">
           <h3 class="font-medium text-gray-800 dark:text-neutral-200">
-            {{ member.name }}
+            {{ board_member.name }}
           </h3>
           <p class="text-xs font-semibold uppercase text-gray-500 dark:text-neutral-500">
-            {{ member.title }}
+            {{ board_member.title }}
           </p>
         </div>
       </div>
 
       <p class="mt-3 text-gray-500 dark:text-neutral-500">
-        {% if member.bio %}
-          {{ member.bio }}
+        {% if board_member.bio %}
+          {{ board_member.bio }}
         {% endif %}
       </p>
 
