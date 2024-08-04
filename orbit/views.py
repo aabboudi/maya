@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from content.models import *
+from executive.models import *
 
 def home(request):
     return render(request, 'index.html')
@@ -13,7 +14,8 @@ def partners(request):
     return render(request, 'about/partners.html')
 
 def executive_board(request):
-    return render(request, 'about/executive-board.html')
+    members = Member.objects.all()
+    return render(request, 'about/executive-board.html', { 'members': members })
 
 def stories(request):
     # stories = Post.objects.all()
