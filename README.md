@@ -6,14 +6,51 @@ Currently hosted on Azure Web Apps via [yesalumni-morocco.azurewebsites.net](htt
 
 ## Technologies Used:
 - [Django](https://docs.djangoproject.com/en/5.0/)
+- [Django Jazzmin](https://django-jazzmin.readthedocs.io/)
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
 - [Preline UI](https://preline.co/docs/index.html)
 - [Lucide Icons](https://lucide.dev/guide/)
 - [Open Graph](https://ogp.me/)
 - [Azure Web Apps](https://azure.microsoft.com/en-us/products/app-service/web)
-- [Django Jazzmin](https://django-jazzmin.readthedocs.io/)
+- [Azure Storage Accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)
 
-## To Do
-- Create CI/CD pipeline
-- Make settings dynamically switch from local to production
-- Handle server errors
+## Getting Started
+To use this template to start your own project:
+
+First clone the repository from Github and switch to the new directory:
+```bash
+git clone https://github.com/aabboudi/maya.git
+cd maya
+```
+
+Create or activate the virtual environment for your project:
+```bash
+virtualenv venv
+venv\Scripts\activate
+```
+
+Install project dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Make and apply all migrations:
+```bash
+py manage.py makemigrations
+py manage.py migrate
+```
+
+Make sure `STATIC_ROOT` is defined in `settings.py` and collect all static files in order for styles to work:
+```bash
+py manage.py collectstatic
+```
+
+Create a superuser to access the admin interface:
+```bash
+py manage.py createsuperuser
+```
+
+You can now run the development server:
+```bash
+py manage.py runserver
+```
