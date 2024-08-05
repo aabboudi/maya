@@ -41,6 +41,7 @@ class Project(models.Model):
         return self.title
 
 class Program(models.Model):
+    active = models.BooleanField(default=False)
     title = models.CharField(max_length=30)
     slug = models.SlugField(unique=True, help_text='This is the URL path value for this page.')
     description = models.CharField(max_length=200, blank=True)
@@ -57,7 +58,7 @@ class ProgramGoal(models.Model):
     icon = models.CharField(max_length=30, blank=True, null=True)
     description = models.CharField(max_length=200)
     image = models.ImageField(upload_to='programs/')
-    program = models.ForeignKey(Program, related_name='goals', on_delete=models.CASCADE, null=True)
+    program = models.ForeignKey(Program, related_name='goals', on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
