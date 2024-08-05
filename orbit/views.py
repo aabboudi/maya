@@ -5,7 +5,6 @@ from executive.models import *
 
 def home(request):
     return render(request, 'index.html')
-    # return HttpResponse("Hello, world. You're at the polls index.")
 
 def about(request):
     return render(request, 'about/about.html')
@@ -36,18 +35,18 @@ def story_details(request, story: str):
     return render(request, 'stories/story.html', { 'story': story, 'images': images })
 
 def programs(request):
-    program_with_image = []
-    programs = Program.objects.prefetch_related('goals')
+    programs_with_image = []
+    programs = Program.objects.prefetch_related('goals').filter(active=True)
 
     for program in programs:
         goal = program.goals.first()
         bgimage_url = goal.image.url if goal and goal.image else None
-        program_with_image.append({
+        programs_with_image.append({
             'program': program,
             'bgimage_url': bgimage_url,
         })
 
-    return render(request, 'programs/programs.html', { 'programs': program_with_image })
+    return render(request, 'programs/programs.html', { 'programs': programs_with_image })
 
 
 def program_details(request, program: str):
