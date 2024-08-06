@@ -12,9 +12,10 @@ def about(request):
 def partners(request):
     return render(request, 'about/partners.html')
 
-def executive_board(request):
-    board_members = BoardMember.objects.all()
-    return render(request, 'about/executive-board.html', { 'board_members': board_members })
+def leadership(request):
+    board_members = BoardMember.objects.filter(active=True)
+    managers = Manager.objects.filter(active=True)
+    return render(request, 'about/leadership.html', { 'board_members': board_members, 'managers': managers })
 
 def stories(request):
     # stories = Post.objects.all()
