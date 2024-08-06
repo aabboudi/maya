@@ -2,6 +2,7 @@ from django.db import models
 from content.models import Program
 
 class BoardMember(models.Model):
+    active = models.BooleanField(default=True)
     name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     avatar = models.ImageField(upload_to='people/', blank=True, default='people/default-avatar.png', help_text='A default avatar is used if left empty.')
@@ -13,6 +14,7 @@ class BoardMember(models.Model):
         return self.name
 
 class Manager(models.Model):
+    active = models.BooleanField(default=False)
     name = models.CharField(max_length=100)
     program = models.ForeignKey(Program, related_name='managers', on_delete=models.CASCADE, null=True)
     avatar = models.ImageField(upload_to='people/', blank=True, default='people/default-avatar.png', help_text='A default avatar is used if left empty.')
