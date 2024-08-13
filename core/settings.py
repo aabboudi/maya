@@ -14,8 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config('DEBUG', default=None, cast=bool)
-DEBUG = True
+DEBUG = config('DEBUG', default=None, cast=bool)
 
 ALLOWED_HOSTS = [
     'yesalumni-morocco.azurewebsites.net',
@@ -28,6 +27,13 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1',
     'https://127.0.0.1',
 ]
+
+SECURE_HSTS_SECONDS = 0  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 
 # Application definition
@@ -63,7 +69,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates', 'templates'),
+            os.path.join(BASE_DIR, 'ui', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -131,7 +137,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'ui'),
 ]
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

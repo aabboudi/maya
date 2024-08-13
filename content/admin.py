@@ -20,8 +20,12 @@ class ProgramGoalAdmin(admin.ModelAdmin):
 class ProgramAdmin(admin.ModelAdmin):
     list_display = ('id', 'active', 'title', 'slug', 'description', 'created_at', 'updated_at')
 
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('id', 'priority', 'question', 'created_at', 'updated_at')
+
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProgramGoal, ProgramGoalAdmin)
 admin.site.register(Program, ProgramAdmin)
+admin.site.register(FAQ, FAQAdmin)

@@ -59,4 +59,5 @@ def contact(request):
     return render(request, 'contact.html')
 
 def faq(request):
-    return render(request, 'faq.html')
+    faqs = FAQ.objects.all().order_by('-priority', '-created_at')
+    return render(request, 'faq.html', { 'faqs': faqs })
