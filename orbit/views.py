@@ -53,7 +53,40 @@ def programs(request):
 def program_details(request, program: str):
     program = get_object_or_404(Program, slug=program)
     goals = program.goals.all()
-    return render(request, 'programs/program-details.html', { 'program': program, 'goals': goals })
+
+    sample_events = [
+        {
+            'icon': 'atlassian.svg',
+            'bgcolor': 'bg-blue-600',
+            'color': 'blue',
+            'category': 'Atlassian API',
+            'title': 'Atlassian',
+            'description': 'A software that develops products for software developers and developments.',
+            'cta1': 'View Sample',
+            'cta2': 'View API'
+        },
+        {
+            'icon': 'asana.svg',
+            'bgcolor': 'bg-rose-500',
+            'color': 'rose',
+            'category': 'Asana API',
+            'title': 'Asana',
+            'description': 'Track tasks and projects, use agile boards, measure progress.',
+            'cta1': 'View Sample',
+            'cta2': 'View API'
+        },
+        {
+            'icon': 'slack.svg',
+            'bgcolor': 'bg-amber-500',
+            'color': 'amber',
+            'category': 'Slack API',
+            'title': 'Slack',
+            'description': 'Email collaboration and email service desk made easy.',
+            'cta1': 'View Sample',
+            'cta2': 'View API'
+        },
+    ]
+    return render(request, 'programs/program-details.html', { 'program': program, 'goals': goals, 'sample_events': sample_events })
 
 def contact(request):
     return render(request, 'contact.html')
