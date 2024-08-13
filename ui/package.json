@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "description": "Tailwind is ready for build or watch",
     "scripts": {
-        "watch:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
-        "build:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/prod-output.css --minify"
+        "watch:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify --watch",
+        "build:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify"
     },
     "dependencies": {
         "lucide": "^0.424.0",

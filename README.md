@@ -4,7 +4,7 @@ This is the official repository for the website of YES Alumni Morocco
 
 Currently hosted on Azure Web Apps via [yesalumni-morocco.azurewebsites.net](https://yesalumni-morocco.azurewebsites.net/).
 
-## Technologies Used:
+## Technologies Used
 - [Django](https://docs.djangoproject.com/en/5.0/)
 - [Django Jazzmin](https://django-jazzmin.readthedocs.io/)
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
@@ -19,19 +19,26 @@ To use this template to start your own project:
 
 First clone the repository from Github and switch to the new directory:
 ```bash
-git clone https://github.com/aabboudi/maya.git
-cd maya
+git clone https://github.com/aabboudi/yesalumni-morocco.git
+cd .\yesalumni-morocco\
 ```
 
 Create or activate the virtual environment for your project:
 ```bash
 virtualenv venv
-venv\Scripts\activate
+.\venv\Scripts\activate
 ```
 
 Install project dependencies:
 ```bash
 pip install -r requirements.txt
+```
+
+Install UI dependencies:
+```bash
+cd .\ui\
+npm install
+cd ..
 ```
 
 Make and apply all migrations:
