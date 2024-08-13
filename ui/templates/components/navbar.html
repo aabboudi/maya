@@ -14,15 +14,15 @@
     </div>
 
     <!-- Collapse -->
-    <div id="hs-header-base" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block "  aria-labelledby="hs-header-base-collapse" >
+    <div id="hs-header-base" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"  aria-labelledby="hs-header-base-collapse" >
       <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
         <div class="py-2 md:py-0  flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
           <div class="grow">
             <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
 
               <!-- Mega Menu -->
-              <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false] ">
-                <button id="hs-header-base-mega-menu-small" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
+              <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false]">
+                <button id="hs-header-base-mega-menu-small" type="button" class="hs-dropdown-toggle w-full navbar-link" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
                   <i data-lucide="info" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                   About
                   <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -31,7 +31,7 @@
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-80 hidden z-10 top-full md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 dark:md:bg-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-base-mega-menu-small">
                   <div class="py-1 md:px-1 space-y-0.5">
                     <!-- Link -->
-                    <a href="/about" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="/about" class="navbar-sublink">
                       <i data-lucide="target" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Mission &amp; Vision</span>
@@ -43,7 +43,7 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a href="/partners" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="/partners" class="navbar-sublink">
                       <i data-lucide="handshake" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Partners</span>
@@ -55,7 +55,7 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a href="/leadership" class="p-3 flex items gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="/leadership" class="navbar-sublink">
                       <i data-lucide="briefcase-business" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Leadership</span>
@@ -74,14 +74,14 @@
                 About
               </a> {% endcomment %}
 
-              <a href="/programs" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+              <a href="/programs" class="navbar-link">
                 <i data-lucide="briefcase-business" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Programs
               </a>
 
               <!-- Mega Menu -->
-              <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false] ">
-                <button id="hs-header-base-mega-menu-small" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
+              <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false]">
+                <button id="hs-header-base-mega-menu-small" type="button" class="hs-dropdown-toggle w-full navbar-link" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
                   <i data-lucide="list-collapse" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                   Events
                   <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -90,7 +90,7 @@
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-80 hidden z-10 top-full md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 dark:md:bg-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-base-mega-menu-small">
                   <div class="py-1 md:px-1 space-y-0.5">
                     <!-- Link -->
-                    <a href="#" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="#" class="navbar-sublink">
                       <i data-lucide="calendar-arrow-down" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Upcoming Events</span>
@@ -102,7 +102,7 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a href="#" class="p-3 flex gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="#" class="navbar-sublink">
                       <i data-lucide="newspaper" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Past Events <span class="inline ms-1 font-medium text-xs bg-blue-600 text-white py-1 px-2 rounded-full">We're hiring</span></span>
@@ -114,7 +114,7 @@
                     <div class="my-2 border-t border-gray-100 dark:border-neutral-800"></div>
 
                     <!-- Link -->
-                    <a href="/stories" class="p-3 flex items gap-x-4 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                    <a href="/stories" class="navbar-sublink">
                       <i data-lucide="images" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Gallery</span>
@@ -127,12 +127,12 @@
               </div>
               <!-- End Mega Menu -->
 
-              <a href="/reports" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+              <a href="/reports" class="navbar-link">
                 <i data-lucide="file-text" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Reports
               </a>
 
-              <a href="/contact" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+              <a href="/contact" class="navbar-link">
                 <i data-lucide="mail-open" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Contact
               </a>
