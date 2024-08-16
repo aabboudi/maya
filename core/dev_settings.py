@@ -16,18 +16,6 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'yesalumni-morocco.azurewebsites.net',
-    '127.0.0.1',
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://yesalumni-morocco.azurewebsites.net',
-    'https://yesalumni-morocco.azurewebsites.net',
-    'http://127.0.0.1',
-    'https://127.0.0.1',
-]
-
 SECURE_HSTS_SECONDS = 0  # 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_HSTS_PRELOAD = False
