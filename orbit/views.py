@@ -6,8 +6,8 @@ from executive.models import *
 def home(request):
     return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about/about.html')
+def mission_and_vision(request):
+    return render(request, 'about/mission-and-vision.html')
 
 def partners(request):
     return render(request, 'about/partners.html')

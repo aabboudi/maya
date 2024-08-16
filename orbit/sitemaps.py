@@ -25,7 +25,7 @@ class StaticSitemap(Sitemap):
   def items(self):
     return [
       'home',
-      'about',
+      'mission_and_vision',
       'partners',
       'stories',
       'programs',
