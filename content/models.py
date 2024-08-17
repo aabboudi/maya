@@ -81,3 +81,12 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
+
+class Banner(models.Model):
+    active = models.BooleanField(default=False)
+    text = models.CharField(max_length=50)
+    cta = models.CharField(max_length=50)
+    cta_type = models.CharField(max_length=50, choices=(('slug', 'Relative'), ('url', 'Absolute'),))
+    cta_link = models.CharField(max_length=100)
+    color = models.CharField(max_length=10, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
