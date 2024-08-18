@@ -43,6 +43,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+    
+    # def get_absolute_url(self):
+    #     return reverse('project', args=[str(self.slug)])
 
 class Program(models.Model):
     active = models.BooleanField(default=False)
