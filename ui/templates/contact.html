@@ -30,18 +30,25 @@
         Let us know what you would like to talk about.
       </h2>
 
-      <form>
+      {% if error %}
+        <div class="mb-8 text-red-500">
+          <strong>Error:</strong> {{ error }}
+        </div>
+      {% endif %}
+
+      <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
         <div class="grid gap-4 lg:gap-6">
           <!-- Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <div>
-              <label for="hs-firstname-contacts-1" class="contact-form-label">First Name</label>
-              <input required type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" class="contact-form-input">
+              <label for="first_name" class="contact-form-label">First Name</label>
+              <input required type="text" name="first_name" id="first_name" class="contact-form-input">
             </div>
 
             <div>
-              <label for="hs-lastname-contacts-1" class="contact-form-label">Last Name</label>
-              <input required type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" class="contact-form-input">
+              <label for="last_name" class="contact-form-label">Last Name</label>
+              <input required type="text" name="last_name" id="last_name" class="contact-form-input">
             </div>
           </div>
           <!-- End Grid -->
@@ -49,29 +56,29 @@
           <!-- Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <div>
-              <label for="hs-email-contacts-1" class="contact-form-label">Email</label>
-              <input required type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email" class="contact-form-input">
+              <label for="email" class="contact-form-label">Email</label>
+              <input required type="email" name="email" id="email" autocomplete="email" class="contact-form-input">
             </div>
 
             <div>
-              <label for="hs-phone-number-1" class="contact-form-label">Phone Number</label>
-              <input type="text" name="hs-phone-number-1" id="hs-phone-number-1" class="contact-form-input">
+              <label for="phone_number" class="contact-form-label">Phone Number</label>
+              <input type="text" name="phone_number" id="phone_number" class="contact-form-input">
             </div>
           </div>
           <!-- End Grid -->
 
           <div>
-            <label for="hs-about-contacts-1" class="contact-form-label">Details</label>
-            <textarea required id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4" class="contact-form-input"></textarea>
+            <label for="message" class="contact-form-label">Message</label>
+            <textarea required id="message" name="message" rows="4" class="contact-form-input"></textarea>
           </div>
 
           <!-- Checkbox -->
           <div class="mt-3 flex">
             <div class="flex">
-              <input required id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+              <input id="privacy_policy" name="privacy_policy" type="checkbox" class="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
             </div>
             <div class="ms-3">
-              <label for="remember-me" class="text-sm text-gray-600 dark:text-neutral-400">I have read and acknowledged the <a href="#" class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500">Privacy policy</a></label>
+              <label for="privacy_policy" class="text-sm text-gray-600 dark:text-neutral-400">I have read and acknowledged the <a href="#" class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500">Privacy policy</a></label>
             </div>
           </div>
           <!-- End Checkbox -->
@@ -85,33 +92,43 @@
 
         <div class="mt-3 text-center">
           <p class="text-sm text-gray-500 dark:text-neutral-500">
-            We'll get back to you in 1-2 business days.
+            We'll get back to you soon.
           </p>
         </div>
       </form>
     </div>
     <!-- End Card -->
-
-    
   </div>
 
-  <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-4 lg:gap-8">
+  <div class="mt-12 grid sm:grid-cols-2 items-center gap-4 lg:gap-8">
 
-    {% for link in quick_links %}
     <!-- Icon Block -->
-    <a href="{{ link.url }}" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
-      <svg class="size-9 text-gray-800 mx-auto dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+    <a href="/frequently-asked-questions" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
+      <i data-lucide="messages-square" class="size-9 text-gray-800 mx-auto dark:text-neutral-200"></i>
       <div class="mt-5">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">{{ link.title }}</h3>
-        <p class="mt-1 text-gray-500 dark:text-neutral-500">{{ link.description }}</p>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">FAQ</h3>
+        <p class="mt-1 text-gray-500 dark:text-neutral-500">Search our FAQ for answers to anything you might ask.</p>
         <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
-          {{ link.cta }}
+          Visit FAQ
           <i data-lucide="chevron-right" class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1 mt-1"></i>
         </p>
       </div>
     </a>
     <!-- End Icon Block -->
-    {% endfor %}
+
+    <!-- Icon Block -->
+    <a href="#" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
+      <i data-lucide="heart-handshake" class="size-9 text-gray-800 mx-auto dark:text-neutral-200"></i>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Volunteer</h3>
+        <p class="mt-1 text-gray-500 dark:text-neutral-500">Find the right volunteer experience for you.</p>
+        <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
+          Browse Opportunities
+          <i data-lucide="chevron-right" class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1 mt-1"></i>
+        </p>
+      </div>
+    </a>
+    <!-- End Icon Block -->
 
   </div>
 </div>

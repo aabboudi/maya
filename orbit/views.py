@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
 from content.models import *
 from executive.models import *
 
@@ -88,28 +88,41 @@ def program_details(request, program: str):
     ]
     return render(request, 'programs/program-details.html', { 'program': program, 'goals': goals, 'sample_events': sample_events })
 
+from decouple import config
+
 def contact(request):
-    quick_links = [
-        {
-            'title': 'Knowledgebase',
-            'description': 'We\'re here to help with any questions or code.',
-            'cta': 'Contact support',
-            'url': '#'
-        },
-        {
-            'title': 'FAQ',
-            'description': 'Search our FAQ for answers to anything you might ask.',
-            'cta': 'Visit FAQ',
-            'url': '#'
-        },
-        {
-            'title': 'Developer APIs',
-            'description': 'Check out our development quickstart guide.',
-            'cta': 'Contact sales',
-            'url': '#'
-        }
-    ]
-    return render(request, 'contact.html', { 'quick_links': quick_links})
+    if request.method == "POST":
+        body = {key: request.POST.get(key) for key in [
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'message']}
+
+        message = "\n".join(f"{ key }: { value }" for key, value in body.items())
+        recipient_email = config('EMAIL_HOST_USER')
+
+        try:
+            if (send_mail(
+                subject="From Contact Page",
+                message=message,
+                from_email=None,
+                recipient_list=[recipient_email],
+                fail_silently=False)):
+
+                send_mail(
+                subject="Your Email is Well Received",
+                message="Thank you!",
+                from_email=recipient_email,
+                recipient_list=[body["email"]],
+                fail_silently=False)
+
+            return redirect('/')
+
+        except Exception:
+            return render(request, 'contact.html', { "error": "Failed to send email. Please try again later." })
+
+    return render(request, 'contact.html')
 
 def faq(request):
     faqs = FAQ.objects.all().order_by('-priority', '-created_at')
