@@ -30,6 +30,12 @@
         Let us know what you would like to talk about.
       </h2>
 
+      {% if error %}
+        <div class="mb-8 text-red-500">
+          <strong>Error:</strong> {{ error }}
+        </div>
+      {% endif %}
+
       <form method="POST" action="{% url 'contact' %}">
         {% csrf_token %}
         <div class="grid gap-4 lg:gap-6">
@@ -92,11 +98,9 @@
       </form>
     </div>
     <!-- End Card -->
-
-    
   </div>
 
-  <div class="mt-12 grid sm:grid-cols-2 md:max-w-72 items-center gap-4 lg:gap-8">
+  <div class="mt-12 grid sm:grid-cols-2 items-center gap-4 lg:gap-8">
 
     <!-- Icon Block -->
     <a href="/frequently-asked-questions" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">

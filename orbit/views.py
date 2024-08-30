@@ -92,25 +92,35 @@ from decouple import config
 
 def contact(request):
     if request.method == "POST":
-        body = {
-            "first_name": request.POST.get('first_name'),
-            "last_name": request.POST.get('last_name'),
-            "email": request.POST.get('email'),
-            "phone_number": request.POST.get('phone_number'),
-            "message": request.POST.get('message')
-        }
+        body = {key: request.POST.get(key) for key in [
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'message']}
 
         message = "\n".join(f"{ key }: { value }" for key, value in body.items())
-        sandbox_recepient = config('EMAIL_HOST_USER')
+        recipient_email = config('EMAIL_HOST_USER')
 
-        send_mail(
-            subject="From Contact Page",
-            message=message,
-            from_email=None,
-            recipient_list=[sandbox_recepient],
-            fail_silently=False)
+        try:
+            if (send_mail(
+                subject="From Contact Page",
+                message=message,
+                from_email=None,
+                recipient_list=[recipient_email],
+                fail_silently=False)):
 
-        return redirect('/')
+                send_mail(
+                subject="Your Email is Well Received",
+                message="Thank you!",
+                from_email=recipient_email,
+                recipient_list=[body["email"]],
+                fail_silently=False)
+
+            return redirect('/')
+
+        except Exception:
+            return render(request, 'contact.html', { "error": "Failed to send email. Please try again later." })
 
     return render(request, 'contact.html')
 
