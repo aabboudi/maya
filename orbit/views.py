@@ -112,27 +112,7 @@ def contact(request):
 
         return redirect('/')
 
-    quick_links = [
-        {
-            'title': 'Knowledgebase',
-            'description': 'We\'re here to help with any questions or code.',
-            'cta': 'Contact support',
-            'url': '#'
-        },
-        {
-            'title': 'FAQ',
-            'description': 'Search our FAQ for answers to anything you might ask.',
-            'cta': 'Visit FAQ',
-            'url': '#'
-        },
-        {
-            'title': 'Developer APIs',
-            'description': 'Check out our development quickstart guide.',
-            'cta': 'Contact sales',
-            'url': '#'
-        }
-    ]
-    return render(request, 'contact.html', { 'quick_links': quick_links })
+    return render(request, 'contact.html')
 
 def faq(request):
     faqs = FAQ.objects.all().order_by('-priority', '-created_at')

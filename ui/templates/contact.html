@@ -96,23 +96,35 @@
     
   </div>
 
-  <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-4 lg:gap-8">
+  <div class="mt-12 grid sm:grid-cols-2 md:max-w-72 items-center gap-4 lg:gap-8">
 
-    {% for link in quick_links %}
     <!-- Icon Block -->
-    <a href="{{ link.url }}" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
-      <svg class="size-9 text-gray-800 mx-auto dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+    <a href="/frequently-asked-questions" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
+      <i data-lucide="messages-square" class="size-9 text-gray-800 mx-auto dark:text-neutral-200"></i>
       <div class="mt-5">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">{{ link.title }}</h3>
-        <p class="mt-1 text-gray-500 dark:text-neutral-500">{{ link.description }}</p>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">FAQ</h3>
+        <p class="mt-1 text-gray-500 dark:text-neutral-500">Search our FAQ for answers to anything you might ask.</p>
         <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
-          {{ link.cta }}
+          Visit FAQ
           <i data-lucide="chevron-right" class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1 mt-1"></i>
         </p>
       </div>
     </a>
     <!-- End Icon Block -->
-    {% endfor %}
+
+    <!-- Icon Block -->
+    <a href="#" class="group flex flex-col h-full text-center border dark:border-neutral-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10">
+      <i data-lucide="heart-handshake" class="size-9 text-gray-800 mx-auto dark:text-neutral-200"></i>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Volunteer</h3>
+        <p class="mt-1 text-gray-500 dark:text-neutral-500">Find the right volunteer experience for you.</p>
+        <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
+          Browse Opportunities
+          <i data-lucide="chevron-right" class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1 mt-1"></i>
+        </p>
+      </div>
+    </a>
+    <!-- End Icon Block -->
 
   </div>
 </div>
