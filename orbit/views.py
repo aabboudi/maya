@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
 from content.models import *
 from executive.models import *
 
@@ -88,7 +88,30 @@ def program_details(request, program: str):
     ]
     return render(request, 'programs/program-details.html', { 'program': program, 'goals': goals, 'sample_events': sample_events })
 
+from decouple import config
+
 def contact(request):
+    if request.method == "POST":
+        body = {
+            "first_name": request.POST.get('first_name'),
+            "last_name": request.POST.get('last_name'),
+            "email": request.POST.get('email'),
+            "phone_number": request.POST.get('phone_number'),
+            "message": request.POST.get('message')
+        }
+
+        message = "\n".join(f"{ key }: { value }" for key, value in body.items())
+        sandbox_recepient = config('EMAIL_HOST_USER')
+
+        send_mail(
+            subject="From Contact Page",
+            message=message,
+            from_email=None,
+            recipient_list=[sandbox_recepient],
+            fail_silently=False)
+
+        return redirect('/')
+
     quick_links = [
         {
             'title': 'Knowledgebase',
@@ -109,7 +132,7 @@ def contact(request):
             'url': '#'
         }
     ]
-    return render(request, 'contact.html', { 'quick_links': quick_links})
+    return render(request, 'contact.html', { 'quick_links': quick_links })
 
 def faq(request):
     faqs = FAQ.objects.all().order_by('-priority', '-created_at')

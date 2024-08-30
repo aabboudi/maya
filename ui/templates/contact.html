@@ -30,18 +30,19 @@
         Let us know what you would like to talk about.
       </h2>
 
-      <form>
+      <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
         <div class="grid gap-4 lg:gap-6">
           <!-- Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <div>
-              <label for="hs-firstname-contacts-1" class="contact-form-label">First Name</label>
-              <input required type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" class="contact-form-input">
+              <label for="first_name" class="contact-form-label">First Name</label>
+              <input required type="text" name="first_name" id="first_name" class="contact-form-input">
             </div>
 
             <div>
-              <label for="hs-lastname-contacts-1" class="contact-form-label">Last Name</label>
-              <input required type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" class="contact-form-input">
+              <label for="last_name" class="contact-form-label">Last Name</label>
+              <input required type="text" name="last_name" id="last_name" class="contact-form-input">
             </div>
           </div>
           <!-- End Grid -->
@@ -49,29 +50,29 @@
           <!-- Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <div>
-              <label for="hs-email-contacts-1" class="contact-form-label">Email</label>
-              <input required type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email" class="contact-form-input">
+              <label for="email" class="contact-form-label">Email</label>
+              <input required type="email" name="email" id="email" autocomplete="email" class="contact-form-input">
             </div>
 
             <div>
-              <label for="hs-phone-number-1" class="contact-form-label">Phone Number</label>
-              <input type="text" name="hs-phone-number-1" id="hs-phone-number-1" class="contact-form-input">
+              <label for="phone_number" class="contact-form-label">Phone Number</label>
+              <input type="text" name="phone_number" id="phone_number" class="contact-form-input">
             </div>
           </div>
           <!-- End Grid -->
 
           <div>
-            <label for="hs-about-contacts-1" class="contact-form-label">Details</label>
-            <textarea required id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4" class="contact-form-input"></textarea>
+            <label for="message" class="contact-form-label">Message</label>
+            <textarea required id="message" name="message" rows="4" class="contact-form-input"></textarea>
           </div>
 
           <!-- Checkbox -->
           <div class="mt-3 flex">
             <div class="flex">
-              <input required id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+              <input id="privacy_policy" name="privacy_policy" type="checkbox" class="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
             </div>
             <div class="ms-3">
-              <label for="remember-me" class="text-sm text-gray-600 dark:text-neutral-400">I have read and acknowledged the <a href="#" class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500">Privacy policy</a></label>
+              <label for="privacy_policy" class="text-sm text-gray-600 dark:text-neutral-400">I have read and acknowledged the <a href="#" class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500">Privacy policy</a></label>
             </div>
           </div>
           <!-- End Checkbox -->
@@ -85,7 +86,7 @@
 
         <div class="mt-3 text-center">
           <p class="text-sm text-gray-500 dark:text-neutral-500">
-            We'll get back to you in 1-2 business days.
+            We'll get back to you soon.
           </p>
         </div>
       </form>
