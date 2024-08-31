@@ -1,7 +1,7 @@
 <header class="sticky top-0 md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
   <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center gap-x-1">
-      <a class="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white" href="/" aria-label="Brand">YES Alumni Association - Morocco</a>
+      <a class="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white" href="{% url 'home' %}" aria-label="Brand">YES Alumni Association - Morocco</a>
 
       <!-- Collapse Button -->
       <button type="button" class="hs-collapse-toggle md:hidden relative size-9 flex justify-center items-center font-medium text-[12px] rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-header-base-collapse"  aria-expanded="false" aria-controls="hs-header-base" aria-label="Toggle navigation"  data-hs-collapse="#hs-header-base" >
@@ -30,7 +30,7 @@
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-80 hidden z-10 top-full md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 dark:md:bg-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-base-mega-menu-small">
                   <div class="py-1 md:px-1 space-y-0.5">
 
-                    <a href="/mission-and-vision" class="navbar-sublink">
+                    <a href="{% url 'mission_and_vision' %}" class="navbar-sublink">
                       <i data-lucide="target" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Mission &amp; Vision</span>
@@ -40,9 +40,7 @@
 
                     <div class="navbar-divider"></div>
 
-                    <div class="navbar-divider"></div>
-
-                    <a href="/leadership" class="navbar-sublink">
+                    <a href="{% url 'leadership' %}" class="navbar-sublink">
                       <i data-lucide="briefcase-business" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Leadership</span>
@@ -52,7 +50,7 @@
 
                     <div class="navbar-divider"></div>
 
-                    <a href="/reports" class="navbar-sublink">
+                    <a href="#" class="navbar-sublink">
                       <i data-lucide="file-text" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Reports</span>
@@ -65,7 +63,7 @@
               </div>
 
               <!-- Programs -->
-              <a href="/programs" class="navbar-link">
+              <a href="{% url 'programs' %}" class="navbar-link">
                 <i data-lucide="briefcase-business" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Programs
               </a>
@@ -101,7 +99,7 @@
 
                     <div class="navbar-divider"></div>
 
-                    <a href="/stories" class="navbar-sublink">
+                    <a href="{% url 'stories' %}" class="navbar-sublink">
                       <i data-lucide="images" class="shrink-0 size-4 mt-1 text-gray-800 dark:text-neutral-200"></i>
                       <div class="grow">
                         <span class="block font-semibold text-sm text-gray-800 dark:text-neutral-200">Gallery</span>
@@ -114,13 +112,13 @@
               </div>
 
               <!-- Partners -->
-              <a href="/partners" class="navbar-link">
+              <a href="{% url 'partners' %}" class="navbar-link">
                 <i data-lucide="handshake" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Partners
               </a>
 
               <!-- Contact -->
-              <a href="/contact" class="navbar-link">
+              <a href="{% url 'contact' %}" class="navbar-link">
                 <i data-lucide="mail-open" class="shrink-0 size-4 me-3 md:me-2 block md:hidden"></i>
                 Contact
               </a>

@@ -15,7 +15,7 @@
 
     {% for story in stories %}
     <!-- Card -->
-    <a href="/stories/{{ story.post.slug }}" class="group relative block rounded-xl focus:outline-none">
+    <a href="{% url 'story_details' story.post.slug %}" class="group relative block rounded-xl focus:outline-none">
       <div class="shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
         <img class="size-full absolute top-0 start-0 object-cover" src={{ story.first_image.image.url }} alt="Blog Image">
       </div>

@@ -14,7 +14,7 @@
   <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-16">
     {% for program in programs %}
     <!-- Card -->
-    <a href="/programs/{{ program.program.slug }}" class="group block rounded-xl overflow-hidden focus:outline-none">
+    <a href="{% url 'program_details' program.program.slug %}" class="group block rounded-xl overflow-hidden focus:outline-none">
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
         <div class="shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
           <img
