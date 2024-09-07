@@ -60,12 +60,25 @@ class TestViews(TestCase):
   def test_contact(self):
     response = self.client.get(reverse('contact'))
     self.assertEqual(response.status_code, 200)
-    self.assertTemplateUsed(response, 'contact.html')
+    self.assertTemplateUsed(response, 'contact/contact.html')
+
+  def test_message_sent_without_flag(self):
+    response = self.client.get(reverse('message_sent'))
+    self.assertEqual(response.status_code, 302)
+    self.assertTemplateNotUsed(response, 'contact/message-sent.html')
+
+  def test_message_sent_with_flag(self):
+    session = self.client.session
+    session['message_sent_flag'] = True
+    session.save()
+    response = self.client.get(reverse('message_sent'))
+    self.assertEqual(response.status_code, 200)
+    self.assertTemplateUsed(response, 'contact/message-sent.html')
 
   def test_faq(self):
     response = self.client.get(reverse('faq'))
     self.assertEqual(response.status_code, 200)
-    self.assertTemplateUsed(response, 'faq.html')
+    self.assertTemplateUsed(response, 'contact/faq.html')
 
   def test_sitemap(self):
     response = self.client.get(reverse('sitemap'))

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
+# from django.http import Http404
 from content.models import *
 from executive.models import *
 
@@ -110,20 +111,30 @@ def contact(request):
                 recipient_list=[recipient_email],
                 fail_silently=False)):
 
-                send_mail(
-                subject="Your Email is Well Received",
-                message="Thank you!",
-                from_email=recipient_email,
-                recipient_list=[body["email"]],
-                fail_silently=False)
+                # send_mail(
+                # subject="Your Email is Well Received",
+                # message="Thank you!",
+                # from_email=recipient_email,
+                # recipient_list=[body["email"]],
+                # fail_silently=False)
 
-            return redirect('/')
+                request.session['message_sent_flag'] = True
+
+            return render(request, 'contact/message-sent.html')
 
         except Exception:
-            return render(request, 'contact.html', { "error": "Failed to send email. Please try again later." })
+            return render(request, 'contact/contact.html', { "error": "Failed to send email. Please try again later." })
 
-    return render(request, 'contact.html')
+    return render(request, 'contact/contact.html')
 
 def faq(request):
     faqs = FAQ.objects.all().order_by('-priority', '-created_at')
-    return render(request, 'faq.html', { 'faqs': faqs })
+    return render(request, 'contact/faq.html', { 'faqs': faqs })
+
+def message_sent(request):
+    if request.session.get('message_sent_flag'):
+        del request.session['message_sent_flag']
+        return render(request, 'contact/message-sent.html')
+    else:
+        # raise Http404("Page not found")
+        return redirect('/')
