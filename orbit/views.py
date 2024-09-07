@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
+# from django.http import Http404
 from content.models import *
 from executive.models import *
 
@@ -117,7 +118,7 @@ def contact(request):
                 # recipient_list=[body["email"]],
                 # fail_silently=False)
 
-                request.session['message_sent'] = True
+                request.session['message_sent_flag'] = True
 
             return render(request, 'contact/message-sent.html')
 
@@ -131,8 +132,9 @@ def faq(request):
     return render(request, 'contact/faq.html', { 'faqs': faqs })
 
 def message_sent(request):
-    if request.session.get('message_sent'):
-        del request.session['message_sent']
+    if request.session.get('message_sent_flag'):
+        del request.session['message_sent_flag']
         return render(request, 'contact/message-sent.html')
     else:
+        # raise Http404("Page not found")
         return redirect('/')
