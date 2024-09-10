@@ -19,7 +19,7 @@
       <p class="mt-5 text-lg text-gray-800 dark:text-neutral-400">The official organization for alumni of the <span class="font-bold">Kennedy-Lugar Youth Exchange and Study</span> program in Morocco.</p>
 
       <div class="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-        <a href="#" class="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+        <a href="{% url 'stories' %}" class="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
           Learn more
           <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
@@ -33,8 +33,7 @@
 
     <div class="lg:col-span-4 mt-10 lg:mt-0">
       <!-- <img class="w-full rounded-xl" src="https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=700&q=80" alt="Hero Image"> -->
-      <!-- <video class="h-full w-full rounded-lg" poster="" controls autoplay loop muted> -->
-      <video class="h-full w-full rounded-lg" poster="" controls muted>
+      <video class="h-full w-full rounded-lg" poster="" autoplay controls loop muted>
         <source
           src="https://docs.material-tailwind.com/demo.mp4"
           type="video/mp4"
