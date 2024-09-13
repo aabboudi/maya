@@ -19,11 +19,9 @@ def leadership(request):
     return render(request, 'about/leadership.html', { 'board_members': board_members, 'managers': managers })
 
 def stories(request):
-    # stories = Post.objects.all()
     posts_with_images = []
     for post in Post.objects.all():
         first_image = post.images.first()
-        print(first_image)
         posts_with_images.append({
             'post': post,
             'first_image': first_image,
@@ -107,16 +105,16 @@ def contact(request):
             if (send_mail(
                 subject="From Contact Page",
                 message=message,
-                from_email=None,
+                from_email="Contact Form",
                 recipient_list=[recipient_email],
                 fail_silently=False)):
 
-                # send_mail(
-                # subject="Your Email is Well Received",
-                # message="Thank you!",
-                # from_email=recipient_email,
-                # recipient_list=[body["email"]],
-                # fail_silently=False)
+                send_mail(
+                subject="Your Email is Well Received",
+                message=f"Dear {body["first_name"]},\n\nWe have received your email and will be in touch shortly. Thank you!\n\nThe YES Alumni Morocco Team",
+                from_email=f"YES Alumni Morocco <{recipient_email}>",
+                recipient_list=[body["email"]],
+                fail_silently=False)
 
                 request.session['message_sent_flag'] = True
 
