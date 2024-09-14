@@ -9,8 +9,17 @@
 {% block content %}
 
 <!-- Message Sent -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-  <p class="text-black dark:text-white">Your message was sent successfully.</p>
+<div class="max-w-[85rem] min-h-[90vh] flex flex-col justify-center items-center px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="max-w-[30rem] p-8 rounded-lg border-2 border-neutral-500">
+    <div class="flex flex-col gap-4 text-center text-black dark:text-white">
+      <i data-lucide="circle-check-big" class="shrink-0 size-12 mx-auto stroke-blue-600"></i>
+      <p class="text-balance">Your message was sent successfully. Thank you for writing to us!</p>
+      <a href="{% url 'home' %}" class="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none mx-auto">
+        Home page
+        <i data-lucide="chevron-right" class="shrink-0 size-4 mt-1"></i>
+      </a>
+    </div>
+  </div>
 </div>
 <!-- End Message Sent -->
 
