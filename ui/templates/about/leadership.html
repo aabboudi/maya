@@ -21,7 +21,7 @@
     <!-- Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for board_member in board_members %}
-        {% include "components/leadershipCard.html" with avatar=board_member.avatar name=board_member.name title=board_member.title bio=board_member.bio %}
+        {% include "components/leadershipCard.html" with avatar=board_member.avatar name=board_member.name title=board_member.title bio=board_member.bio linkedin=board_member.linkedin_link %}
       {% endfor %}
     </div>
     <!-- End Grid -->
